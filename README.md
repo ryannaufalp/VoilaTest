@@ -6,7 +6,7 @@ by: Ryan Naufal Pioscha
 this is on class TransactionSteps and the feature on transaction.feature
 
 this is dummy class of selenium i created because this is just example of the feature (on TransactionSteps.java)
-```aidl
+```
 Feature: Transaction and Checkout Process
 
   Scenario: Complete a transaction from login to checkout with specified conditions
@@ -59,29 +59,31 @@ Login
 I created automation for succesful login feature with username and password on LoginSteps.java, and all gherkin cases on login.feature
 
 Search
-```aidl
+```
 Feature: Product Search
   As a user, I want to search for products so that I can quickly find what I'm looking for.
 
   Scenario: Search with a valid product name
     Given the user is on the homepage
-    When the user enters "Laptop" in the search bar
-    And the user clicks the search button
-    Then the user should see a list of products related to "Laptop"
-    And each product should display the name, price, and availability status
+    When the user enters "Nike" in the search bar
+    And the user clicks enter key
+    Then the user should see a list of products related to "Nike"
+    And each product should display the name and price
 
   Scenario: Search with an invalid or non-existent product name
     Given the user is on the homepage
     When the user enters "aaaa" in the search bar
-    And the user clicks the search button
-    Then the user should see a message "No products found matching 'XYZ123'"
+    And the user clicks enter key
+    Then the user should see a message "Product not found"
+    And no products should be displayed
 
   Scenario: Search with an empty search query
     Given the user is on the homepage
     When the user leaves the search bar empty
-    And the user clicks the search button
-    Then the user should see an error message "Please enter a search term"
+    And the user clicks enter key
+    Then the user should see a message "Product not found"
     And no products should be displayed
+
 ```
 I created automation for search with a valid product name on SearchSteps.java (Not Done) and all gherkin cases on search.feature 
 ### bugs:
